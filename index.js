@@ -1,5 +1,6 @@
 
 const{ Client , GatewayIntentBits } = require("discord.js");
+//const { Player } = require("discord-player")
 const client = new Client({ 
     intents:
      [
@@ -29,6 +30,9 @@ client.on('interactionCreate',interaction =>{
     if(interaction.commandName === 'nokkuman'){
         interaction.reply("blaaa");
         }
+        if (interaction.commandName === 'play') return
+
+        const slashcmd = client.slashcommands.get(interaction.commandName)
 });
 
 
