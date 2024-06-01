@@ -5,7 +5,8 @@ const client = new Client({
      [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildVoiceStates
     ] 
 });
 
@@ -13,14 +14,21 @@ client.on('messageCreate',message =>{
     if(message.author.bot) return;
     //console.log(message.content);
     
+   
     message.reply({
         content: "hello mone"
     });
+
 });
 
 client.on('interactionCreate',interaction =>{
+    if(interaction.commandName === 'ping'){
     interaction.reply("blaaa");
+    }
 
+    if(interaction.commandName === 'nokkuman'){
+        interaction.reply("blaaa");
+        }
 });
 
 
